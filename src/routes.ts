@@ -44,6 +44,9 @@ import { createchatlivecontroller } from "./Chat/ChatLive/CreateChatLive/createc
 import { deletechatlivecontroller } from "./Chat/ChatLive/Deletechatlive/deletechatlivecontroller/deletechatlivecontroller";
 import { mostrachatlivecontroller } from "./Chat/ChatLive/MostreChatLive/mostrachatlivecontroller/mostrachatlivecontroller";
 import { updatevizulivecontroller } from "./Live/UpdateVizulive/updatevizulivecontroller/updatevizulivecontroller";
+import { createvizulivecontroller } from "./Live/VizuLive/CreateVizuLive/createvizulivecontroller/createvizulivecontroller";
+import { listvizulivecontroller } from "./Live/VizuLive/ListVizulive/listvizulivecontroller/listvizulivecontroller";
+import { deletevizulivecontroller } from "./Live/VizuLive/DeleteVizuLive/deletevizulivecontroller/deletevizulivecontroller";
 
 
 import { testecontoller } from "./teste/testecontroller/testecontroller";
@@ -101,5 +104,9 @@ router.post('/createchatlive',new createchatlivecontroller().handle)
 router.get('/mostrachatlive',new mostrachatlivecontroller().handle)
 router.delete('/deletechatlive',new deletechatlivecontroller().handle)
 router.put('/updateVizu',new updatevizulivecontroller().handle)
+router.post('/createvizu',new createvizulivecontroller().handle)
+router.get('/listvizu',new  listvizulivecontroller().handle)
+router.delete('/deletevizu',new deletevizulivecontroller().handle)
+
 
 export{router}

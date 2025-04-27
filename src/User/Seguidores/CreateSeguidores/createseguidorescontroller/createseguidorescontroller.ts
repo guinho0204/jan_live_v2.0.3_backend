@@ -1,4 +1,4 @@
-import { Request,Response } from "express"
+ import { Request,Response } from "express"
 import { createseguidoresservice } from "../createseguidoresservice/createseguidoresservice"
 
 class createseguidorescontroller{

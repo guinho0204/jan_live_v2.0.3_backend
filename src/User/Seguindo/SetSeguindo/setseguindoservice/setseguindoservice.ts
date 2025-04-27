@@ -23,7 +23,7 @@ class setseguindoservice{
       })
      
       return setseguidor 
-      console.log(id_user)
+      
     }
 }
 export {setseguindoservice}

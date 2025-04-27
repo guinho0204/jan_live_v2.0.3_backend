@@ -140,6 +140,15 @@ app.post('/webhook/pix', async(req: Request, res: Response,) =>{
              io.emit("mensagemCamera",{id_liveF,msg})  
 
      })
+
+     socket.on('presentes',([{id_live,presente,valor,vezes}]) =>{
+             io.emit("recebepresente",{id_live,presente,valor,vezes})
+             console.log("infos : " + id_live+" "+ presente+" "+valor+" "+vezes)
+     })
+     socket.on("infolive", ([{ id_live, statuslive }]) => {
+      console.log("infolive status", id_live, statuslive);
+      io.emit("infolive", { id_live, statuslive }); // ou "recebeinfo"
+    });
      socket.on('mensagem', (msg) => {
             console.log('Mensagem recebida do cliente:', msg);
 
