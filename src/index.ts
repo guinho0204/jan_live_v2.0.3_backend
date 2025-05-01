@@ -145,6 +145,16 @@ app.post('/webhook/pix', async(req: Request, res: Response,) =>{
              io.emit("recebepresente",{id_live,presente,valor,vezes})
              console.log("infos : " + id_live+" "+ presente+" "+valor+" "+vezes)
      })
+     socket.on('ativalistavizu',(msg) =>{
+
+           io.emit('ativalistavizu',msg)
+           console.log(msg)
+     })
+     socket.on('enviamensagem',([{msg,id_live}])=>{
+           io.emit('enviamensagem',{msg,id_live})
+           console.log(msg+" e o id é "+ id_live)
+     })
+
      socket.on("infolive", ([{ id_live, statuslive }]) => {
       console.log("infolive status", id_live, statuslive);
       io.emit("infolive", { id_live, statuslive }); // ou "recebeinfo"
@@ -169,8 +179,8 @@ app.post('/webhook/pix', async(req: Request, res: Response,) =>{
             io.emit('messageDeleted', { messageId });
         }); 
 
-      socket.on('disconnect', () => {
-        console.log('A user disconnected');
+      socket.on('disconnect', (reason) => {
+        console.log('A user disconnected'+reason);
       });
 
       

@@ -3,16 +3,17 @@
 import { prismaCli } from "../../../../prisma/conection"
 
 interface UidRequest{
-    uid_live:string;
+    id_live:string;
 }
 
 class mostrachatliveservice{
-    async execute({uid_live}:UidRequest){
+    async execute({id_live}:UidRequest){
        
+        const id = parseInt(id_live)
         
         const mostrachat = await prismaCli.chatLive.findMany({
             where:{
-                Id_live:uid_live
+                Id_live:id_live
             },
             orderBy:{
                 Create_at:'desc'

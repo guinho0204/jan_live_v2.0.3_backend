@@ -2,16 +2,16 @@ import { prismaCli } from "../../../../prisma/conection"
 
 
 interface UidRequest{
-    uid_live:string;
+    id_live:string;
 }
 
 class deletechatliveservice{
-    async execute({uid_live}:UidRequest){
+    async execute({id_live}:UidRequest){
        
         
         const deletechatLive = await prismaCli.chatLive.deleteMany({
             where:{
-                Id_live:uid_live
+                Id_live:id_live
             }
         })
  
